@@ -1,7 +1,7 @@
 templating is rad
 =================
 
-To get started, run `git clone git@github.com:kylestetz/templating-tutorial.git` and then `cd templating-tutorial` and run `npm install`.
+To get started, `cd ~/sites`, run `git clone git@github.com:kylestetz/templating-tutorial.git` and then `cd templating-tutorial` and run `npm install`.
 
 Then run `node app.js` or `nodemon app.js` to get started.
 
