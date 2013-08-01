@@ -1,0 +1,57 @@
+body {
+  margin: 0;
+  font: 20px "Andale Mono", Helvetica, Arial, sans-serif;
+  background-color: #44a069;
+  color: #212121;
+  font-weight: bold;
+}
+a {
+  color: #f4f4f4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: white;
+  margin-top: 10px;
+}
+h1 {
+  font-size: 200%;
+}
+h2 {
+  font-size: 175%;
+}
+h3 {
+  font-size: 150%;
+}
+h4 {
+  font-size: 125%;
+}
+h5 {
+  font-size: 100%;
+}
+h6 {
+  font-size: 75%;
+}
+.a-splash-of-color-1 {
+  background-color: #ca7a57;
+}
+.a-splash-of-color-2 {
+  background-color: #b8ce5d;
+}
+.a-splash-of-color-3 {
+  background-color: #ccb05a;
+}
+.a-splash-of-color-4 {
+  background-color: #45b873;
+}
+.block {
+  width: 100%;
+  padding: 40px 0;
+}
+.inner {
+  max-width: 1140px;
+  margin: 0 auto;
+}

@@ -1,0 +1,15 @@
+
+{# a macro is a function and it can take one or more inputs. #}
+{# macros are great when you want to do something over and over again. #}
+
+{# in this case listItem takes an input and places it in <li> tags #}
+{% macro listItem(item) %}
+<li>{{ item }}</li>
+{% endmacro %}
+
+{# macros can call other macros. #}
+{% macro listItems(list) %}
+  {% for thing in list %}
+    {{ listItem(thing) }}
+  {% endfor %}
+{% endmacro %}

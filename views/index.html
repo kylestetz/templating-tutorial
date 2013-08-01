@@ -1,0 +1,95 @@
+{% extends 'base_layout.html' %}
+
+{#
+
+If you look in routes/index.js, you'll find all the data
+that you have available to you in this template. The trick
+is knowing what you have access to.
+
+I made a function called log which works the same way aposLog does:
+{{ person|log }} will show you the contents of the person object in Terminal.
+In apostrophe we use the function() syntax, but here we're using nunjuck's
+'filter' functionality. Check out the Filters section here: http://nunjucks.jlongster.com/templating
+
+#}
+
+{# here's some macros #}
+{% include 'some_macros.html' %}
+
+
+{% block content %}
+
+  <div class="block">
+    <div class="inner">
+      <h1>{{ title }}</h1>
+      <p>{{ message }}</p>
+    </div>
+  </div>
+
+  <div class="block a-splash-of-color-1">
+    <div class="inner">
+
+      {# this is a common trick in templating languages (and one you've used in apostrophe) #}
+      {# for displaying images. #}
+
+      <h2>Kittens</h2>
+      <img src="{{ imageUrl }}" />
+      <img src="{{ imageUrl }}" />
+      <img src="{{ imageUrl }}" />
+      <img src="{{ imageUrl }}" />
+      <img src="{{ imageUrl }}" />
+
+    </div>
+  </div>
+
+  <div class="block a-splash-of-color-2">
+    <div class="inner">
+
+      {# we can loop through the array 'listOfThings' #}
+
+      <h3>A List of Things:</h3>
+      <ul>
+        {% for item in listOfThings %}
+          <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+
+    </div>
+  </div>
+
+  <div class="block a-splash-of-color-3">
+    <div class="inner">
+
+      {# same thing but using the macros we imported... #}
+
+      <h4>That list again using Macros:</h4>
+      {{ listItems(listOfThings) }}
+
+    </div>
+  </div>
+
+  <div class="block a-splash-of-color-4">
+    <div class="inner">
+
+      {# we can access the contents of the person object #}
+
+      <h5>A person object:</h5>
+      <p>Name: {{ person.name }}</p>
+      <p>Job: {{ person.job }}</p>
+      <p>Age: {{ person.age }}</p>
+      <p>Disposition: {{ person.disposition }}</p>
+      <p>Nicknames:</p>
+      {{ listItems(person.nicknames) }}
+
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="inner">
+      <h6>A number:</h6>
+      <p>{{ aNumber }}</p>
+    </div>
+  </div>
+
+
+{% endblock %}
