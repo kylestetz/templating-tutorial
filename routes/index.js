@@ -3,21 +3,20 @@
 
 var title = 'This is the title';
 
-var message = 'So rad.';
+var message = 'This is the message.';
 
 var listOfThings = [ "this", "is", "a", "list", "of", "strings" ];
 
 var person = {
-  name: "Noodles",
-  job: "Professional Noodler",
-  age: 1000,
-  disposition: "Sunny",
-  nicknames: [ "dude", "bro", "guy", "man1", "sir" ]
+  name: "Person",
+  job: "Job Title",
+  age: 100,
+  disposition: "Sunny"
 };
 
 var imageUrl = "/images/kitten.png";
 
-exports.index = function(req, res){
+module.exports.index = function(req, res){
   res.render('index.html', {
     title: title,
     message: message,

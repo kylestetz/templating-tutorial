@@ -5,37 +5,35 @@ var path = require('path');
 var routes = require('./routes');
 var nunjucks = require('nunjucks');
 
-// make the express app
+// the express app instance
 var app = express();
 
-// set up nunjucks
-var env = new nunjucks.Environment(new nunjucks.FileSystemLoader(__dirname + '/views'), {
-  dev: true,
-  autoescape: true
+// nunjucks
+app.set('view engine', 'html');
+var env = nunjucks.configure('views', {
+    autoescape: true,
+    express: app,
+    watch: true
 });
 
-env.addFilter('log', function(data) {
-  console.log(data);
-});
-
-// configure the app
-app.configure( function(){
-  env.express(app);
-  app.set('views', __dirname + '/views');
-  app.use(express.favicon());
-  app.use(express.logger('dev'));
-  app.use(express.bodyParser());
-  app.use(express.methodOverride());
-  app.use(app.router);
-  app.use(require('less-middleware')({ src: __dirname + '/public' }));
-  app.use(express.static(path.join(__dirname, 'public')));
-  app.use(express.errorHandler());
-});
+// app.use(cookieParser());
+// use less middleware so that our LESS automatically compiles to CSS
+app.use(require('less-middleware')(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 //  routes/index.js is where all the fun happens
 app.get('/', routes.index);
 
+// create a server from the express app
+var server = http.Server(app);
+
 // run the server
-http.createServer(app).listen(3000, function(){
-  console.log('The node server is running at http://localhost:3000');
+server.listen(3000);
+// error handling
+server.on('error', function(error) {
+  console.error(error);
+});
+// this function is called when the server starts
+server.on('listening', function() {
+  console.log('The server is running at http://localhost:3000');
 });

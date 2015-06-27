@@ -1,8 +1,8 @@
 templating is rad
 =================
 
-To get started, `cd ~/sites`, run `git clone git@github.com:kylestetz/templating-tutorial.git` and then `cd templating-tutorial` and run `npm install`.
+To get started, clone this repo and run `npm install` to get all of the dependencies.
 
-Then run `node app.js` or `nodemon app.js` to get started.
+Run `npm start` to start the server, which you can now access at http://localhost:3000.
 
-The template is `views/index.html` and the Javascript file with the data in it is `routes/index.js`.
+The template being rendered is `views/index.html`, and the relevant javascript is located in `routes/index.js`.
